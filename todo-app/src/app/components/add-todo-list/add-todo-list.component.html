@@ -1,0 +1,32 @@
+<p>add-todo-list works!</p>
+<!-- <button (click)="addData()">Add Data</button> -->
+<div class="add-product-section mt-3">
+    <div class="box-head">
+        <h1 class="pr-name">Add to do List</h1>
+    </div>
+    <form [formGroup]="ListFrom" (ngSubmit)="addData()" class="row g-3">
+        <div class="form-group">
+            <label class="form-label">Task Name</label>
+            <input type="text" class="form-control" formControlName="todoText">
+            <div *ngIf="f['todoText'].touched && f['todoText'].invalid && f['todoText'].errors && f['todoText'].errors['required']"
+          class="error">
+          Task name is required.</div>
+        </div>
+        <!-- <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">Complete Status</label>
+                    <select class="form-control" formControlName="isCompleted">
+                        <option>true</option>
+                        <option>False</option>
+                      </select>  
+                </div>
+            </div>
+        </div> -->
+         <div class="col-12 text-end mt-5">
+            <button type="submit" class="btn btn btn-outline-secondary me-2"  [disabled]="ListFrom.invalid">Submit</button>
+            <!-- <button type="submit" class="btn btn-outline-primary">Submit<i
+                    *ngIf="isDataUploading" class="fa fa-spinner fa-pulse fa-fw"></i></button> -->
+        </div> 
+    </form>
+  </div> 

@@ -1,0 +1,73 @@
+<div class="container-fluid main-content">
+    <div class="row">
+      <section class="col-md-7">
+        <div class="product-header">
+          <h1>To do List</h1>
+        </div>
+        <table class="table">
+          <thead class="thead-light t-head">
+            <tr>
+              <th scope="col">Task Name</th>
+              <!-- <th scope="col" style="padding-left:20px;">Is it Completed</th> -->
+              <th scope="col" style="padding-left:20px;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr 
+                 *ngFor="let listItem of listItems; let i = index"
+                  (click)="selectItem(i,listItem)"
+                  [ngClass]="rowIndex == i ? 'active' : ''">
+       
+              <td scope="col"  [ngClass]="{
+                'text-strikethrough': listItem.isCompleted
+              }" style="margin: 1px;">{{listItem.todoText}}</td>
+              <!-- <td scope="col" style="padding-left:20px;">{{listItem.isCompleted}}</td> -->
+              <td scope="col" style="padding-left:20px;">
+                <button
+                  type="button"
+                  [disabled]="rowIndex != i"
+                  (click)="updateToComplete(listItem.key)"
+                  class="btn-xs icon"
+                >
+                  <i class="fa fa-eye"></i>
+                </button>
+
+                <button
+                type="button"
+                [disabled]="rowIndex != i"
+                (click)="revertComplete(listItem.key)"
+                class="btn-xs icon"
+                 >
+                <i class="fa fa-level-up"></i>
+               </button>
+                <button
+                  type="button"
+                  [disabled]="rowIndex != i"
+                  class="btn-xs icon"
+                >
+                  <i class="fa fa-pencil-square-o"></i>
+                </button>
+
+                <button
+                type="button"
+                [disabled]="rowIndex != i"
+                (click)="deleteTodoItem(listItem.key)"
+                class="btn-xs icon"
+                 >
+                <i class="fa fa-trash"></i>
+              </button>
+
+              
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="col-md-5" >
+        <app-add-todo-list  (refreshTodoList)="getData()"></app-add-todo-list>
+        <!-- <app-add-product *ngIf="showAddProduct"  (productAddEvent)="updateProductList()"> </app-add-product>
+        <app-edit-product *ngIf="showEditProduct" [product]="selectedProduct" (cancelEditView)=closeEditView()  (productAddEvent) ="updateProductList()"  > </app-edit-product> -->
+      </section>
+    </div>
+  </div>
+  
