@@ -4,6 +4,8 @@ import { Items } from 'src/app/models/items';
 import { TodofirebaseService } from 'src/app/services/todofirebase.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component'; // Adjust the path if necessary
 import { MatDialog } from '@angular/material/dialog';
+import { UpdateItem } from 'src/app/models/update-item';
+
 @Component({
   selector: 'app-view-todo-list',
   standalone: false,
@@ -19,12 +21,18 @@ export class ViewTodoListComponent {
   // public listItems: Items[] = [];
   public listItems: any = [];
   public rowIndex!: number;
-  selectedItems!: ViewItems;
+  //selectedItems!: ViewItems;
+  selectedItems!: UpdateItem;
+  showEditTask!: boolean;
 
-  public selectItem(selectedRow: number, item: ViewItems) {
+
+
+  public selectItem(selectedRow: number, item: UpdateItem) {
     this.rowIndex = selectedRow;
     this.selectedItems = item;
+    console.log("this is the value of key "+this.selectedItems.key)
   }
+
   ngOnInit() {
     this.getData();
   }
@@ -95,6 +103,14 @@ export class ViewTodoListComponent {
     } catch (error) {
       console.error('Error deleting todo:', error);
     }
+  }
+
+  OpenEditProductView(){
+    this.showEditTask = true;
+  }
+
+  closeEditView(){
+    this.showEditTask = false;
   }
 
 }

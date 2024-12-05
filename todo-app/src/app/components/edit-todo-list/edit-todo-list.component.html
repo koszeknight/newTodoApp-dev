@@ -1,1 +1,38 @@
-<p>edit-todo-list works!</p>
+<p>add-todo-list works!</p>
+<!-- <button (click)="addData()">Add Data</button> -->
+<div class="add-product-section mt-3">
+    <div class="box-head">
+        <h1 class="pr-name">Edit product</h1>
+        <button type="button" class="btn btn-light" (click)="cancel()">X</button>
+    </div>
+
+    <div class="box-head">
+        <h1 class="pr-name">Add to do List</h1>
+    </div>
+    <form  class="row g-3" #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label class="form-label">Task Name</label>
+            <input type="text" class="form-control" name="todoText"   #todoText="ngModel" 
+              [(ngModel)]="todoItems.todoText"  [ngModelOptions]="{ standalone: true }" >
+             
+              <input type="text" class="form-control" #formControlName="ngModel" 
+              [(ngModel)]="todoItems.key"  [ngModelOptions]="{ standalone: true }">
+        </div>
+        <!-- <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">Complete Status</label>
+                    <select class="form-control" formControlName="isCompleted">
+                        <option>true</option>
+                        <option>False</option>
+                      </select>  
+                </div>
+            </div>
+        </div> -->
+         <div class="col-12 text-end mt-5">
+            <button type="submit" class="btn btn btn-outline-secondary me-2"  [disabled]="form.invalid">Submit</button>
+            <!-- <button type="submit" class="btn btn-outline-primary">Submit<i
+                    *ngIf="isDataUploading" class="fa fa-spinner fa-pulse fa-fw"></i></button> -->
+        </div> 
+    </form>
+  </div> 

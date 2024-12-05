@@ -43,6 +43,7 @@
                 <button
                   type="button"
                   [disabled]="rowIndex != i"
+                  (click)="OpenEditProductView()"
                   class="btn-xs icon"
                 >
                   <i class="fa fa-pencil-square-o"></i>
@@ -67,6 +68,7 @@
         <app-add-todo-list  (refreshTodoList)="getData()"></app-add-todo-list>
         <!-- <app-add-product *ngIf="showAddProduct"  (productAddEvent)="updateProductList()"> </app-add-product>
         <app-edit-product *ngIf="showEditProduct" [product]="selectedProduct" (cancelEditView)=closeEditView()  (productAddEvent) ="updateProductList()"  > </app-edit-product> -->
+        <app-edit-todo-list *ngIf="showEditTask"  [todoItems]="selectedItems" (cancelEditView)=closeEditView()   (refreshTodoList)="getData()"></app-edit-todo-list>
       </section>
     </div>
   </div>
