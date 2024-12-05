@@ -145,8 +145,6 @@ export class TodofirebaseService {
         }
       }
 
-
-      
       // New method to delete a todo by its key
       async revertComplete(todoKey: string): Promise<void> {
         try {
