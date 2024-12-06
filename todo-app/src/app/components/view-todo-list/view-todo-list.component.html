@@ -3,6 +3,14 @@
       <section class="col-md-7">
         <div class="product-header">
           <h1>To do List</h1>
+          <button
+          *ngIf="!showAddTask"
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="showAddTasks()"
+          >
+          Add Product
+        </button>
         </div>
         <table class="table">
           <thead class="thead-light t-head">
@@ -65,7 +73,7 @@
         </table>
       </section>
       <section class="col-md-5" >
-        <app-add-todo-list  (refreshTodoList)="getData()"></app-add-todo-list>
+        <app-add-todo-list *ngIf="showAddTask"   (cancelAddView)=closeAddView()  (refreshTodoList)="getData()"></app-add-todo-list>
         <!-- <app-add-product *ngIf="showAddProduct"  (productAddEvent)="updateProductList()"> </app-add-product>
         <app-edit-product *ngIf="showEditProduct" [product]="selectedProduct" (cancelEditView)=closeEditView()  (productAddEvent) ="updateProductList()"  > </app-edit-product> -->
         <app-edit-todo-list *ngIf="showEditTask"  [todoItems]="selectedItems" (cancelEditView)=closeEditView()   (refreshTodoList)="getData()"></app-edit-todo-list>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , Output , EventEmitter } from '@angular/core';
 import { ViewItems } from 'src/app/models/view-items';
 import { Items } from 'src/app/models/items';
 import { TodofirebaseService } from 'src/app/services/todofirebase.service';
@@ -24,6 +24,7 @@ export class ViewTodoListComponent {
   //selectedItems!: ViewItems;
   selectedItems!: UpdateItem;
   showEditTask!: boolean;
+  showAddTask!: boolean;
 
 
 
@@ -111,6 +112,14 @@ export class ViewTodoListComponent {
 
   closeEditView(){
     this.showEditTask = false;
+  }
+
+  closeAddView(){
+    this.showAddTask = false;
+  }
+
+  showAddTasks(){
+         this.showAddTask =true;
   }
 
 }

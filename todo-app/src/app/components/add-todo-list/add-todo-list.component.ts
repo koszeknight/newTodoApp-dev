@@ -10,6 +10,7 @@ import { Items } from 'src/app/models/items';
 })
 export class AddTodoListComponent {
   @Output() refreshTodoList : EventEmitter<void> = new EventEmitter<void>();
+  @Output() cancelAddView: EventEmitter<void> = new EventEmitter<void> ();
 
   constructor(
     private fb: FormBuilder,
@@ -47,5 +48,11 @@ get f() {
         console.error("Error adding data",error);
      });
   }
+
+  close(){
+    this.cancelAddView.emit();
+  }
+
+
     
 }
