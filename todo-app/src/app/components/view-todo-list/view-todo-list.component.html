@@ -16,6 +16,7 @@
           <thead class="thead-light t-head">
             <tr>
               <th scope="col">Task Name</th>
+              <th scope="col">Expire Date</th>
               <!-- <th scope="col" style="padding-left:20px;">Is it Completed</th> -->
               <th scope="col" style="padding-left:20px;">Action</th>
             </tr>
@@ -29,8 +30,15 @@
               <td scope="col"  [ngClass]="{
                 'text-strikethrough': listItem.isCompleted
               }" style="margin: 1px;">{{listItem.todoText}}</td>
+              <td scope="col"  [ngClass]="{
+                'text-strikethrough': listItem.isCompleted
+              }" style="margin: 1px;">{{listItem.expiredDate}}</td>
               <!-- <td scope="col" style="padding-left:20px;">{{listItem.isCompleted}}</td> -->
               <td scope="col" style="padding-left:20px;">
+
+          
+                <!-- <td scope="col" style="padding-left:20px;">{{listItem.isCompleted}}</td> -->
+
                 <button
                   type="button"
                   [disabled]="rowIndex != i"

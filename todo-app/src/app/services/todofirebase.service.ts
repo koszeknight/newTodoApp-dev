@@ -46,6 +46,7 @@ export class TodofirebaseService {
       // Push a new entry under the 'todo' collection
       const newTodoRef = push(todoRef);
       // Set the value of the new entry
+      console.log('Expire Data' + data.expiredDate);
       await set(newTodoRef, data);
       console.log('Todo added successfully');
     } catch (error) {

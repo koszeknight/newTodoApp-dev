@@ -13,6 +13,13 @@
           class="error">
           Task name is required.</div>
         </div>
+
+        <div class="form-group">        
+            <div class="col-md-6">
+                <label class="form-label">Expiry Date</label>
+                <input type="date" class="form-control" formControlName="expiredDate">
+            </div>
+        </div>
         <!-- <div class="form-group">
             <div class="row">
                 <div class="col-md-4">
@@ -24,6 +31,7 @@
                 </div>
             </div>
         </div> -->
+
          <div class="col-12 text-end mt-5">
             <button type="submit" class="btn btn btn-outline-secondary me-2"  [disabled]="ListFrom.invalid">Submit</button>
             <!-- <button type="submit" class="btn btn-outline-primary">Submit<i

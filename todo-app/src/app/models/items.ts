@@ -1,6 +1,7 @@
 export interface Items {
    // id: number;
     todoText?: string;
+    expiredDate? :string;
     isCompleted: boolean ; // Default value
 
 
