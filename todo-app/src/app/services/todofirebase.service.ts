@@ -166,9 +166,10 @@ export class TodofirebaseService {
     console.log("todoKey value " + keyValue);
     const todoUpatedText = data.todoText;
     console.log("this is the todoUpadateText: " + todoUpatedText);
+    console.log("this is the textUpdate date: " + data.expiredDate);
     try {
       const todoRef = ref(this.database, `todo/${keyValue}`);
-      await update(todoRef, { todoText: data.todoText });
+      await update(todoRef, { todoText: data.todoText , expiredDate : data.expiredDate});
       // isCompleted status should have to update as true;
       console.log(`Todo with key ${this.todokey} marked as uncompleted.`);
     } catch (error) {

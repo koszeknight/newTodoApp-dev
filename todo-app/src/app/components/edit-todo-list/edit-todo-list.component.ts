@@ -31,9 +31,11 @@ export class EditTodoListComponent {
       //const {todoText} = this.ListFrom.value as { todoText : string }
       const key = this.todoItems.key
       const todoText =  this.todoItems.todoText;
+      const expiredDate = this.todoItems.expiredDate;
       const newItem : UpdateItem ={
          key,
          todoText,
+         expiredDate,
          isCompleted :false
       };
        
